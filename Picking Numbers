@@ -1,0 +1,30 @@
+def pickingNumbers(a):
+    arr_s = sorted(a)
+    res = 1
+    cur = 1
+    diff = 0
+    for ind in range(1, len(arr_s)):
+        #print("arr[{}] - arr[{}] = {} - {} res = {} cur = {}".format(ind, ind - 1, arr_s[ind], arr_s[ind - 1], res, cur))
+        diff += arr_s[ind] - arr_s[ind - 1]
+        if diff > 1:
+            res = max(res, cur)
+            cur = 1
+            diff = 0
+        else:
+            cur += 1
+            
+    res = max(res, cur)
+    
+    return res
+        
+        
+            
+        
+
+
+
+
+n = 6
+a = [4,6,5,3,3,1]
+
+print(pickingNumbers(a))
