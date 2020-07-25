@@ -1,0 +1,38 @@
+def appendAndDelete(s, t, k):
+    start = 0
+    i = 0
+    to_delete = 0
+    to_append = 0
+    
+    while i < len(s) and ind < len(t) and s[i] == t[i]:
+        i += 1
+    start = i
+    
+    if start < len(s):
+        to_delete = len(s[start:])
+        if to_delete == len(s) and k - to_delete >= len(t):
+            return 'Yes'
+    if start < len(t):
+        to_append = len(t[start:])
+    k -= to_delete + to_append
+    
+    #print("start = {} to_delete = {} to_append = {} k = {}".format(start, to_delete, to_append, k))
+    if k == 0 or (k > 0 and k % 2 == 0) or k >= 2*len(t):
+        return 'Yes'
+    else:
+        return 'No'
+    
+if __name__ == '__main__':
+    fptr = open(os.environ['OUTPUT_PATH'], 'w')
+
+    s = input()
+
+    t = input()
+
+    k = int(input())
+
+    result = appendAndDelete(s, t, k)
+
+    fptr.write(result + '\n')
+
+    fptr.close()
