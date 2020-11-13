@@ -1,0 +1,23 @@
+a=10
+b=20
+
+
+def repeating(n):
+    arr=[]
+    
+    while n>0:
+        l=n%10
+        if l in arr:
+            return 0
+            
+        arr.append(l)
+        n=n//10
+    return 1
+    
+def soln():
+    res=0
+    for i in range(a,b+1,1):
+        res=res+repeating(i)
+    return res
+print(soln())
+        
