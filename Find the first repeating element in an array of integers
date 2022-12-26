@@ -1,0 +1,11 @@
+var numbers = [7, 5, 7, 6, 6, 4, 9, 10, 2, 11];
+var map = {};
+    
+for (var i = 0; i < numbers.length; i++) {
+   if (map[numbers[i]] !== undefined) {
+       console.log(map[numbers[i]]);
+       break;
+   } else {
+       map[numbers[i]] = i;
+   }
+}
