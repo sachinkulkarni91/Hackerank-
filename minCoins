@@ -1,0 +1,18 @@
+var coins=[1,2,5]
+var sum=7
+function change(coins,sum){
+    if(sum==0){
+        return 0
+    }
+    if (sum<0){
+        return Infinity
+    }
+    var sol=Infinity
+    for(let i=0;i<coins.length;i++){
+        var ans=change(coins,sum-coins[i])+1
+        console.log(ans)
+        sol=Math.min(ans,sol)
+    }
+    return sol
+}
+console.log(change(coins,sum))
